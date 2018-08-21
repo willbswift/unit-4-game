@@ -1,6 +1,6 @@
 html {
 	background-color: white;
-	background-image: url("../images/background2.jpg");
+/*	background-image: url("../images/background2.jpg");   */
     width: 100vw;
     -webkit-background-size: cover;
   	-moz-background-size: cover;
@@ -36,16 +36,23 @@ h1 {
 	padding-top: 0;
 }
 
+img {
+	height: 200px;
+	width: auto;
+}
+
 main {
 
 }
 
 article {
-	position: absolute;
+/*	position: absolute;
 	right: 5%;
 	text-align: left;
 	width: 50%;
 }
+*/
+
 .target {
 	margin-bottom: 1rem;
 }

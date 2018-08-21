@@ -1,9 +1,8 @@
 
+//There will be four crystals displayed as buttons on the page.
 
-//**There will be four crystals displayed as buttons on the page.
-//**load display
-
-//$(document).ready(function() {
+  //load display
+$(document).ready(function() {
 
     //The random target number should be between 19 - 120.
   let targetMin = 19;
@@ -37,83 +36,106 @@
     ilumNumber.empty();
     ruusanNumber.empty();
     isBuilt = false;
+    $(".target, .current").empty();
   };
 
     //generate random target number
   targetNumber = random(targetMin, targetMax);
-    console.log(targetNumber);
+  console.log(targetNumber);
 
-    let html =
-      "<h2>You have a count of " + targetNumber + " hundred midi-chlorians</h2>";
-    document.querySelector(".target").innerHTML = html;
+    //The player will be shown the random target number at the start of the game.  
+  let html = targetNumber ;
+  document.querySelector(".target").innerHTML = html;
 
-//**The player will be shown the random target number at the start of the game.  
+    //generate random values for crystals. game will hide this amount until the player clicks a crystal.
+  adeganNumber = random(crystalMin, crystalMax);
+    console.log(adeganNumber);
+  jedhaNumber = random(crystalMin, crystalMax);
+    console.log(jedhaNumber);
+  ilumNumber = random(crystalMin, crystalMax);
+    console.log(ilumNumber);
+  ruusanNumber = random(crystalMin, crystalMax);
+    console.log(ruusanNumber);
 
-  //generate random values for crystals. game will hide this amount until the player clicks a crystal.
-adeganNumber = random(crystalMin, crystalMax);
-  console.log(adeganNumber);
-jedhaNumber = random(crystalMin, crystalMax);
-  console.log(jedhaNumber);
-ilumNumber = random(crystalMin, crystalMax);
-  console.log(ilumNumber);
-ruusanNumber = random(crystalMin, crystalMax);
-  console.log(ruusanNumber);
+    //When the player clicks on a crystal, it will add a specific amount of points to the player's total score. 
+  $('img').bind('click', function (evt) {
 
-//When the player clicks on a crystal, it will add a specific amount of points to the player's total score. 
+    if (currentNumber < targetNumber) {
+      if($(this).attr('id') == 'adegan') {
+        currentNumber = currentNumber + adeganNumber;
+        console.log(currentNumber);
+      }
+      if($(this).attr('id') == 'jedha') {
+        currentNumber = currentNumber + jedhaNumber;
+        console.log(currentNumber);
+      }
+      if($(this).attr('id') == 'ilum') {
+        currentNumber = currentNumber + ilumNumber;
+        console.log(currentNumber);
+      }
+      if($(this).attr('id') == 'ruusan') {
+        currentNumber = currentNumber + ruusanNumber;
+        console.log(currentNumber);
+      }
 
-  if (currentNumber === targetNumber) {
-    let html2 =
-      "<h2>You have constructed a new lightsabre!  Indeed you are powerful as the Emperor has forseen" +
-      "<br><h3>Hit any key to build another lightsabre.</h3>";
+        //When they do click one, update the player's score counter.
+      let html3 = 
+        "<h2>Current attunement of Lightsabre " + currentNumber + "</h2>";
+      document.querySelector(".current").innerHTML = html3;
+
+      //The player wins if their total score matches the random number from the beginning of the game.
+    if (currentNumber === targetNumber) {
+      console.log("You Win!")
+      sabresBuilt = sabresBuilt +1;
+      console.log(sabresBuilt);
+      let html2 =
+        "<h2>You have constructed a new lightsabre!  Indeed you are powerful as the Emperor has forseen" +
+        "<br><h3>Hit any key to build another lightsabre.</h3>";
       document.querySelector(".status").innerHTML = html2;
 
-    //load a picture of a lit sabre???  
+    /*    //sabre ignite sound FX
+        let audioElement = document.createElement("audio");
+          audioElement.setAttribute("src", "assets/sound/___________.mp3");
+          audioElement.play();
+    */
 
-    //sabre ignite sound FX
-    let audioElement = document.createElement("audio");
-      audioElement.setAttribute("src", "assets/sound/___________.mp3");
-      audioElement.play();
+//**load a picture of a lit sabre???  
 
-    document.onkeyup = function(event) {
-      initializeGame();
+        document.onkeyup = function(event) {
+          initializeGame();
+        }
+      }
+
+      //The player loses if their score goes above the random number.
+    else if (currentNumber > targetNumber) {
+      console.log("You Lose!")
+      sabreTrys = sabreTrys +1;
+      console.log(sabreTrys);
+      let html5 =
+        "<h2>The Lightsabre has exploded!</h2>" +
+        "<h3>Hit any key to build another lightsabre.</h3>";
+      document.querySelector(".status").innerHTML = html5;
+
+      //load a picture of a lit sabre???  
+
+  /*    //sabre ignite sound FX
+      let audioElement = document.createElement("audio");
+        audioElement.setAttribute("src", "assets/sound/___________.mp3");
+        audioElement.play();
+  */
+
+      document.onkeyup = function(event) {
+        initializeGame();
+      }
     }
-  }
-  else {
 
+    }
+  })
 
+});
 
-
-
-     $('img').bind('click', function (evt)
-       {
-         if($(this).attr('id') == 'img1')
-         {
-            alert('img1');
-         }
-         if($(this).attr('id') == 'img2')
-         {
-            alert('img2');
-         }
-       });
-
-
-
-    currentNumber = currentNumber;
-  }
-
-
-//When they do click one, update the player's score counter.
-
-    let html2 =
-      "<h2>Current attunement of Lightsabre" + currentNumber + "</h2>";
-    document.querySelector(".current").innerHTML = html2;
-
-//The player wins if their total score matches the random number from the beginning of the game.
-
-//The player loses if their score goes above the random number.
 
 //The app should show the number of games the player wins and loses.
-
 
 /*
         // Set isBuilt to true so that we don't get in a weird UI state by clicking buttons again
