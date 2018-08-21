@@ -1,5 +1,149 @@
 
 
+//**There will be four crystals displayed as buttons on the page.
+//**load display
+
+//$(document).ready(function() {
+
+    //The random target number should be between 19 - 120.
+  let targetMin = 19;
+  let targetMax = 120;
+
+    //Each crystal should have a random hidden value between 1 - 12.
+  let crystalMin = 1;
+  let crystalMax = 12;
+  let sabresBuilt = 0;
+  let sabreTrys = 0;
+  let currentNumber = 0;
+
+  let targetNumber;
+  let adeganNumber;
+  let jedhaNumber;
+  let ilumNumber;
+  let ruusanNumber;
+
+  function random(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+  }
+
+  // Use a function to reset game status to unbuilt
+  function initializeGame() {
+    currentNumber = 0;
+    targetNumber.empty();
+    adeganNumber.empty();
+    jedhaNumber.empty();
+    ilumNumber.empty();
+    ruusanNumber.empty();
+    isBuilt = false;
+  };
+
+    //generate random target number
+  targetNumber = random(targetMin, targetMax);
+    console.log(targetNumber);
+
+    let html =
+      "<h2>You have a count of " + targetNumber + " hundred midi-chlorians</h2>";
+    document.querySelector(".target").innerHTML = html;
+
+//**The player will be shown the random target number at the start of the game.  
+
+  //generate random values for crystals. game will hide this amount until the player clicks a crystal.
+adeganNumber = random(crystalMin, crystalMax);
+  console.log(adeganNumber);
+jedhaNumber = random(crystalMin, crystalMax);
+  console.log(jedhaNumber);
+ilumNumber = random(crystalMin, crystalMax);
+  console.log(ilumNumber);
+ruusanNumber = random(crystalMin, crystalMax);
+  console.log(ruusanNumber);
+
+//When the player clicks on a crystal, it will add a specific amount of points to the player's total score. 
+
+  if (currentNumber === targetNumber) {
+    let html2 =
+      "<h2>You have constructed a new lightsabre!  Indeed you are powerful as the Emperor has forseen" +
+      "<br><h3>Hit any key to build another lightsabre.</h3>";
+      document.querySelector(".status").innerHTML = html2;
+
+    //load a picture of a lit sabre???  
+
+    //sabre ignite sound FX
+    let audioElement = document.createElement("audio");
+      audioElement.setAttribute("src", "assets/sound/___________.mp3");
+      audioElement.play();
+
+    document.onkeyup = function(event) {
+      initializeGame();
+    }
+  }
+  else {
+
+
+
+
+
+     $('img').bind('click', function (evt)
+       {
+         if($(this).attr('id') == 'img1')
+         {
+            alert('img1');
+         }
+         if($(this).attr('id') == 'img2')
+         {
+            alert('img2');
+         }
+       });
+
+
+
+    currentNumber = currentNumber;
+  }
+
+
+//When they do click one, update the player's score counter.
+
+    let html2 =
+      "<h2>Current attunement of Lightsabre" + currentNumber + "</h2>";
+    document.querySelector(".current").innerHTML = html2;
+
+//The player wins if their total score matches the random number from the beginning of the game.
+
+//The player loses if their score goes above the random number.
+
+//The app should show the number of games the player wins and loses.
+
+
+/*
+        // Set isBuilt to true so that we don't get in a weird UI state by clicking buttons again
+        isBuilt = true;
+  }
+*/
+
+//The game restarts whenever the player wins or loses. (do not refresh the page as a means to restart the game.)
+// The target number and current number should both reset, but the total wins and loses should remain.
+
+/*
+
+
+
+*/
+
+
+
+//});
+
+/*
+
+
+Eralam
+Opila
+Bondar
+Luxum
+Durindfire 
+Katak
+
 // Created an array of themed words
 let puterOptions = ["JOHN CONNER", "GUARDIAN TERMINATOR", "KYLE REESE", "SARAH CONNER", "SAM WRIGHT", "SKYNET", "CAMERON", "DEREK REESE", "KATE BREWSTER", "BLAIR WILLIAMS", "MILES DYSON", "JAMES ELLISON", "CROMARTIE", "CATHERINE WEAVER", "TERMINATRIX"];
   // Randomly chooses a choice from the options array. This is the Computer's guess.
@@ -28,3 +172,4 @@ let lettersGuessed = [];
 
 
 
+*/

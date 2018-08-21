@@ -1,5 +1,5 @@
 html {
-	background-color: black;
+	background-color: white;
 	background-image: url("../images/background2.jpg");
     width: 100vw;
     -webkit-background-size: cover;
@@ -8,7 +8,7 @@ html {
   	background-size: cover;
   	background-repeat: no-repeat;
   	margin-top: 4rem;
-	color: white;
+	color: blue;
 	font-family: arial, sans-serif;
 	font-size: 1.2rem;
 	font-weight: bolder;
