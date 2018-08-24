@@ -14,22 +14,37 @@
 
 <body>
     <header>
-      <h1>STAR WARS: Lightsabre Atonement Game</h1>
+        <h1>STAR WARS: Lightsabre Atonement Game</h1>
     </header>
     <main>
       <article>
         <section class="instructions">
-          <p>______"--INSTRUCTIONS GO HERE--"_____
-          <br>Do or Do Not.  There is no Try.</p>
-        </div>
-        <h2>You have a count of <div class="target"></div> hundred midi-chlorians</h2>
-        <p>Kyber crystals</p>
-        <img id="adegan" src="assets/images/adegan.jpg" />
-        <img id="jedha" src="assets/images/jedha.png" />
-        <img id="ilum" src="assets/images/ilum.jpg" />
-        <img id="ruusan" src="assets/images/ruusan.png" />
-        <div class="current"></div>
-        <div class="status"></div>
+            <p>To truly master even the most basic of sabre forms a Jedi must be perfectly in tune with his weapon.  To achieve this resonance each Padawan must construct their sabre using the right combination of kyber crystals to match their own personal signature in the Force.  Select crystals from below until the sabre’s aura matches the padawan’s.  And remember, do or do not.  There is no try.</p>
+            <img class="unbuilt" src="assets/images/sabre1.jpg">
+            <h2>You have a count of <span class="target"></span> hundred midi-chlorians</h2>
+        </section>
+        <figure>
+            <img id="adegan" class="crystal" src="assets/images/adegan.jpg" />
+            <img id="jedha" class="crystal" src="assets/images/jedha.jpg" />
+            <img id="ilum" class="crystal" src="assets/images/ilum.png" />
+            <img id="ruusan" class="crystal" src="assets/images/ruusan.jpg" />
+            <figcaption>Choose between Adegan, Jedha, Ilum, and Ruusan Crystals</figcaption>
+        </figure>
+        <section class="instructions">
+            <h2 >Current attunement of Lightsabre <span class="current"></span></h2>  
+            <h2><div class="status"></div></h2>
+            <div class="sabrepic">        
+                <em>The crystal is the heart of the blade.
+                <br>The heart is the crystal of the Jedi.
+                <br>The Jedi is the crystal of the Force.
+                <br>The Force is the blade of the heart.
+                <br>All are intertwined.
+                <br>The crystal, the blade, the Jedi.
+                <br>You are one. </em>
+            </div>
+            <div class="sabrebroke"></div>
+            <p>Total Sabres built: <span class="sabres"></span> Total Failures: <span class="failures"></span></p>
+        </section>
       </article>
     </main>
 
