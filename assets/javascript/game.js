@@ -7,6 +7,7 @@ $(document).ready(function() {
     $(".sabrepic").hide();
     $(".sabrebroke").hide();
     $(".unbuilt").show();
+    $("figure").show();
 
     //The random target number should be between 19 - 120.
   let targetMin = 19;
@@ -37,6 +38,7 @@ $(document).ready(function() {
     $(".unbuilt").show();
     $(".sabrepic").hide();
     $(".sabrebroke").hide();
+    $("figure").show();
     $(".status").html("");
     currentNumber = 0;
     targetNumber = "";
@@ -98,8 +100,11 @@ $(document).ready(function() {
     console.log("Built " + sabresBuilt);
     //**load a picture of a lit sabre???  
       $(".unbuilt").hide();
+      $("figure").hide();
       $(".sabrepic").show();
-      $(".status").html("You have constructed a new lightsabre! <br> Indeed you are powerful as the Emperor has foreseen.<br> Hit any key to build another lightsabre.");
+      $(".status").html("You have constructed a new lightsabre!")
+        .append("<br><em>Indeed you are powerful as the Emperor has foreseen.<em>")
+        .append("<br>Hit any key to build your next lightsabre.");
 
         let audioElement = document.createElement("audio");
           audioElement.setAttribute("src", "assets/sound/sabreon.wav");
@@ -117,8 +122,11 @@ $(document).ready(function() {
       sabreTrys = sabreTrys +1;
       console.log("Failure" + sabreTrys);
       $(".unbuilt").hide();
+      $("figure").hide();
       $(".sabrebroke").show();
-      $(".status").html("The Lightsabre has exploded! <br> The greatest teacher, failure is. <br> Hit any key to build another lightsabre.");
+      $(".status").html("The Lightsabre has exploded!")
+        .append("<br><em>The greatest teacher, failure is.<em>")
+        .append("<br>Hit any key to build another lightsabre.");
 
         //explosion sound FX
       let audioElement = document.createElement("audio");
